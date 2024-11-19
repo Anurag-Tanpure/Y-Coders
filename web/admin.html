@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Smart Campus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="dashboard-container">
+     
+        <div class="sidebar animate__animated animate__slideInLeft">
+            <div class="logo-section">
+                <img src="logo.png" alt="Logo" class="dashboard-logo">
+                <h3 class="text-white">Smart Campus</h3>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-item active" data-section="dashboard">
+                    <i class="ri-dashboard-line"></i> Dashboard
+                </button>
+                <button class="nav-item" data-section="students">
+                    <i class="ri-user-line"></i> Students
+                </button>
+                <button class="nav-item" data-section="mentors">
+                    <i class="ri-team-line"></i> Mentors
+                </button>
+                <button class="nav-item" data-section="analytics">
+                    <i class="ri-bar-chart-line"></i> Analytics
+                </button>
+                <button class="nav-item logout">
+                    <i class="ri-logout-box-line"></i> Logout
+                </button>
+            </nav>
+        </div>
+
+        
+        <div class="main-content">
+            <header class="dashboard-header">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="admin-profile">
+                    <span class="admin-name">Admin Name</span>
+                    <img src="admin-avatar.png" alt="Admin" class="admin-avatar">
+                </div>
+            </header>
+
+           
+            <div class="dashboard-section active" id="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card animate__animated animate__fadeInUp">
+                        <i class="ri-user-line"></i>
+                        <h3>Total Students</h3>
+                        <p class="counter">1,234</p>
+                    </div>
+                    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+                        <i class="ri-team-line"></i>
+                        <h3>Total Mentors</h3>
+                        <p class="counter">42</p>
+                    </div>
+                    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                        <i class="ri-building-line"></i>
+                        <h3>Departments</h3>
+                        <p class="counter">8</p>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="dashboard-section" id="students">
+                <div class="section-header">
+                    <h2>Student Management</h2>
+                    <button class="add-btn" onclick="showModal('student')">
+                        <i class="ri-add-line"></i> Add Student
+                    </button>
+                </div>
+                <div class="action-cards">
+                    <div class="action-card">
+                        <i class="ri-user-add-line"></i>
+                        <h4>Insert Student</h4>
+                        <button onclick="showModal('student')">Add New</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="ri-edit-line"></i>
+                        <h4>Update Student</h4>
+                        <button onclick="showModal('update-student')">Update</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="ri-delete-bin-line"></i>
+                        <h4>Delete Student</h4>
+                        <button onclick="showModal('delete-student')">Delete</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="ri-search-line"></i>
+                        <h4>Search Student</h4>
+                        <button onclick="showModal('search-student')">Search</button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="dashboard-section" id="mentors">
+                <div class="section-header">
+                    <h2>Mentor Management</h2>
+                    <button class="add-btn" onclick="showModal('mentor')">
+                        <i class="ri-add-line"></i> Add Mentor
+                    </button>
+                </div>
+                <div class="action-cards">
+                    <div class="action-card">
+                        <i class="ri-user-add-line"></i>
+                        <h4>Insert Mentor</h4>
+                        <button onclick="showModal('mentor')">Add New</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="ri-edit-line"></i>
+                        <h4>Update Mentor</h4>
+                        <button onclick="showModal('update-mentor')">Update</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="ri-delete-bin-line"></i>
+                        <h4>Delete Mentor</h4>
+                        <button onclick="showModal('delete-mentor')">Delete</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="ri-search-line"></i>
+                        <h4>Search Mentor</h4>
+                        <button onclick="showModal('search-mentor')">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
