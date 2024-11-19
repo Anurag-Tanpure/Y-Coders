@@ -19,17 +19,17 @@
         String status = request.getParameter("status");
         String errorMsg = null; // To hold error message
 
-        // Log parameters for debugging (only for development, not for production)
+    
         System.out.println("Status: " + status);
         System.out.println("ID: " + id);
         System.out.println("Password: " + pass);
 
-        // Handle different user statuses
+       
         if (status != null && id != null && pass != null) {
             switch (status) {
                 case "student":
                     
-                    // Redirect or handle student logic
+                 
                 {
                     session.setAttribute("sid",id);
                     StudentDao sd =new StudentDao();
@@ -45,15 +45,15 @@
                    
                     break;
                 case "mentor":
-                    // Redirect or handle mentor logic
+                  
                     response.sendRedirect("mentorDashboard.jsp");
                     break;
                 case "admin":
-                    // Validate admin credentials
+                  
                     if (id.equals("1212") && pass.equals("59#test")) {
                         response.sendRedirect("admin.html");
                     } else {
-                        errorMsg = "Invalid Admin ID or Password!"; // Set error message
+                        errorMsg = "Invalid Admin ID or Password!"; 
                     }
                     break;
                 default:
