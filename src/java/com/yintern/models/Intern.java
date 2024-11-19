@@ -12,9 +12,9 @@ public class Intern {
     private String mentorEmail;
     private String startDate;
     private String offerLetterFname;
-    private int marks; // Updated marks to int
+    private int marks;
 
-    // Getters and Setters
+   
     public int getSid() {
         return sid;
     }
@@ -103,11 +103,11 @@ public class Intern {
         this.offerLetterFname = offerLetterFname;
     }
 
-    public int getMarks() { // Updated to return int
+    public int getMarks() { 
         return marks;
     }
 
-    public void setMarks(int marks) { // Updated to accept int
+    public void setMarks(int marks) { 
         this.marks = marks;
     }
 }
