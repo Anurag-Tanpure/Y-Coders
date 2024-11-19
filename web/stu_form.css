@@ -1,0 +1,66 @@
+/* Form animations and effects */
+.form-input, .form-select {
+    transition: all 0.3s ease;
+}
+
+.form-input:focus, .form-select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(34, 211, 238, 0.1);
+}
+
+/* Glassmorphism effects */
+.backdrop-blur-md {
+    backdrop-filter: blur(12px);
+}
+
+/* Form group hover effects */
+.form-group {
+    transition: all 0.3s ease;
+}
+
+.form-group:hover label {
+    color: #22d3ee;
+}
+
+/* Custom select styling */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+}
+
+/* Floating animation for the logo */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Background gradient animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(45deg, #111827, #1f2937, #111827);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Input focus ring animation */
+@keyframes focusRing {
+    0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+}
+
+.form-input:focus, .form-select:focus {
+    animation: focusRing 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
