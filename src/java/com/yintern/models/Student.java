@@ -1,17 +1,15 @@
 package com.yintern.models;
 
 public class Student {
-    private int sid;            // Student ID
-    private String spass;       // Student Password
-    private String sname;       // Student Name
-    private int internstatus;   // Internship Status (-1, 0, 1)
-    private int mentorId;       // Mentor ID (new field)
+    private int sid;            
+    private String spass;       
+    private String sname;       
+    private int internstatus;   
+    private int mentorId;       
 
-    // Default Constructor
+    
     public Student() {}
-
-    // Parameterized Constructor
-    public Student(int sid, String spass, String sname, int internstatus, int mentorId) {
+   public Student(int sid, String spass, String sname, int internstatus, int mentorId) {
         this.sid = sid;
         this.spass = spass;
         this.sname = sname;
@@ -19,7 +17,7 @@ public class Student {
         this.mentorId = mentorId;
     }
 
-    // Getter and Setter for sid
+   
     public int getSid() {
         return sid;
     }
@@ -28,7 +26,7 @@ public class Student {
         this.sid = sid;
     }
 
-    // Getter and Setter for spass
+  
     public String getSpass() {
         return spass;
     }
@@ -37,7 +35,7 @@ public class Student {
         this.spass = spass;
     }
 
-    // Getter and Setter for sname
+    
     public String getSname() {
         return sname;
     }
@@ -46,7 +44,7 @@ public class Student {
         this.sname = sname;
     }
 
-    // Getter and Setter for internstatus
+    
     public int getInternstatus() {
         return internstatus;
     }
@@ -59,7 +57,7 @@ public class Student {
         }
     }
 
-    // Getter and Setter for mentorId
+  
     public int getMentorId() {
         return mentorId;
     }
@@ -68,7 +66,7 @@ public class Student {
         this.mentorId = mentorId;
     }
 
-    // toString method for debugging and logging
+   
     @Override
     public String toString() {
         return "Student{" +
