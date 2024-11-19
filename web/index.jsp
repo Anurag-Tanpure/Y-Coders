@@ -28,12 +28,14 @@
         if (status != null && id != null && pass != null) {
             switch (status) {
                 case "student":
+                    
                     // Redirect or handle student logic
                 {
+                    session.setAttribute("sid",id);
                     StudentDao sd =new StudentDao();
                     if(sd.checkLogin(Integer.parseInt(id), pass))
                     {
-                        response.sendRedirect("student.html");
+                        response.sendRedirect("student.jsp");
                     }
                     else
                     {

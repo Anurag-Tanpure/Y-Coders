@@ -27,15 +27,26 @@
 
             <!-- Form -->
             <div class="bg-gray-800/50 backdrop-blur-md rounded-xl p-8 border border-gray-700/50 shadow-2xl animate__animated animate__fadeInUp">
-                <form id="studentForm" class="space-y-6">
+                <form id="studentForm" action="StudentInsert" method="post" class="space-y-6">
                     <!-- Scholar Number -->
                     <div class="form-group">
                         <label class="text-gray-300 text-sm mb-2 block">Scholar Number</label>
                         <div class="relative">
                             <i class="ri-number-3 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" 
+                            <input type="text"  name="id"
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
                                    placeholder="Enter your scholar number">
+                        </div>
+                    </div>
+
+                    <!-- Mentor ID -->
+                    <div class="form-group">
+                        <label class="text-gray-300 text-sm mb-2 block">Mentor ID</label>
+                        <div class="relative">
+                            <i class="ri-shield-user-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text"  name="mentor_id"
+                                   class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
+                                   placeholder="Enter mentor ID">
                         </div>
                     </div>
 
@@ -44,7 +55,7 @@
                         <label class="text-gray-300 text-sm mb-2 block">Student Name</label>
                         <div class="relative">
                             <i class="ri-user-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="text" 
+                            <input type="text" name="name"
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
                                    placeholder="Enter your full name">
                         </div>
@@ -55,7 +66,7 @@
                         <label class="text-gray-300 text-sm mb-2 block">Password</label>
                         <div class="relative">
                             <i class="ri-lock-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <input type="password" 
+                            <input type="password"  name="pass"
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
                                    placeholder="Create a password">
                             <button type="button" 
@@ -71,7 +82,7 @@
                         <label class="text-gray-300 text-sm mb-2 block">Intern Status</label>
                         <div class="relative">
                             <i class="ri-briefcase-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                            <select class="form-select w-full bg-gray-900/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200">
+                            <select name="status" class="form-select w-full bg-gray-900/50 border border-gray-700 rounded-lg pl-10 pr-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200">
                                 <option value="" disabled selected>Select your status</option>
                                 <option value="not_started">Not Started</option>
                                 <option value="in_progress">In Progress</option>

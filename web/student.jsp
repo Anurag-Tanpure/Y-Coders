@@ -1,3 +1,5 @@
+<%@page import="com.yintern.models.Student"%>
+<%@page import="com.yintern.dao.StudentDao"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +13,12 @@
     <link rel="stylesheet" href="student.css">
 </head>
 <body class="bg-gray-900">
+    <%
+        StudentDao sd =new StudentDao();
+        String id = session.getAttribute("sid").toString();
+        Student s=sd.getStudentById(Integer.parseInt(id));
+        
+    %>
     
     <nav class="fixed top-0 left-0 right-0 bg-gray-900 border-b border-gray-800 z-50">
         <div class="flex justify-between items-center px-6 py-3">
@@ -69,8 +77,8 @@
                     <img src="student-avatar.png" alt="Profile" 
                          class="w-10 h-10 rounded-full border-2 border-cyan-400 p-[2px]">
                     <div class="hidden md:block">
-                        <h2 class="text-sm font-semibold text-white">John Doe</h2>
-                        <p class="text-xs text-gray-400">EN: 12345678</p>
+                        <h2 class="text-sm font-semibold text-white"><% out.print(s.getSname());%></h2>
+                        <p class="text-xs text-gray-400"><% out.print(s.getSid());%></p>
                     </div>
                 </div>
                 <button class="nav-item logout p-2 text-gray-300 rounded-lg hover:text-red-400 transition-colors duration-200">
@@ -82,7 +90,15 @@
 
 
     <main class="pt-20 px-6 min-h-screen">
-
+<%
+    String status =null;
+    switch(s.getInternstatus())
+    {
+        case -1 : status = "Pending";break;
+        case 0 : status = "In Progress";break;
+        case 1 : status = "Completed";break;
+    }
+%>
         <div class="dashboard-section active" id="profile">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
            
@@ -90,7 +106,7 @@
                     <h3 class="text-xl font-semibold text-white mb-4">Internship Status</h3>
                     <div class="flex items-center gap-3 bg-gray-900/50 p-4 rounded-lg">
                         <i class="ri-information-line text-cyan-400 text-xl"></i>
-                        <span class="status-text text-gray-200">In Progress</span>
+                        <span class="status-text text-gray-200"><% out.print(status);%></span>
                     </div>
                 </div>
 
@@ -126,7 +142,7 @@
             
           
             <div class="flex justify-center">
-                <a href="form.html" 
+                <a href="form.jsp" 
                    class="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all duration-200 flex items-center gap-2">
                     <i class="ri-file-add-line text-xl"></i>
                     Add Internship Details

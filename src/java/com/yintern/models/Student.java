@@ -1,23 +1,22 @@
 package com.yintern.models;
 
-/**
- * Represents a Student entity corresponding to the student table in the database.
- */
 public class Student {
     private int sid;            // Student ID
     private String spass;       // Student Password
     private String sname;       // Student Name
     private int internstatus;   // Internship Status (-1, 0, 1)
+    private int mentorId;       // Mentor ID (new field)
 
     // Default Constructor
     public Student() {}
 
     // Parameterized Constructor
-    public Student(int sid, String spass, String sname, int internstatus) {
+    public Student(int sid, String spass, String sname, int internstatus, int mentorId) {
         this.sid = sid;
         this.spass = spass;
         this.sname = sname;
         this.internstatus = internstatus;
+        this.mentorId = mentorId;
     }
 
     // Getter and Setter for sid
@@ -60,6 +59,15 @@ public class Student {
         }
     }
 
+    // Getter and Setter for mentorId
+    public int getMentorId() {
+        return mentorId;
+    }
+
+    public void setMentorId(int mentorId) {
+        this.mentorId = mentorId;
+    }
+
     // toString method for debugging and logging
     @Override
     public String toString() {
@@ -68,6 +76,7 @@ public class Student {
                 ", spass='" + spass + '\'' +
                 ", sname='" + sname + '\'' +
                 ", internstatus=" + internstatus +
+                ", mentorId=" + mentorId +
                 '}';
     }
 }

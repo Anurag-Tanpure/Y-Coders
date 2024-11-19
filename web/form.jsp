@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="form.css">
 </head>
 <body class="bg-gray-900 min-h-screen">
+    <% 
+    String id = session.getAttribute("sid").toString();
+    %>
     <div class="container mx-auto px-4 py-8">
     
         <div class="text-center mb-8 animate__animated animate__fadeInDown">
@@ -22,43 +25,44 @@
 
        
         <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-md rounded-xl p-8 border border-gray-700/50 shadow-2xl animate__animated animate__fadeInUp">
-            <form id="internshipForm" class="space-y-6">
+            <form id="internshipForm" action="InternInsert" method="post" class="space-y-6">
                 <!-- Company Details Section -->
                 <div class="p-6 bg-gray-900/50 rounded-xl mb-6">
                     <h3 class="text-xl font-semibold text-cyan-400 mb-4 flex items-center gap-2">
                         <i class="ri-building-line"></i>
                         Company Information
                     </h3>
+                    <input type="text" value="<%= id %>"  name ="id" hidden="true"> 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">Company Name</label>
                             <input type="text" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter company name">
+                                   name = "cname" placeholder="Enter company name">
                         </div>
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">Company's Registration Number</label>
                             <input type="text" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter registration number">
+                                name="cnumber"   placeholder="Enter registration number">
                         </div>
                         <div class="form-group md:col-span-2">
                             <label class="text-gray-300 text-sm mb-2 block">Company Address</label>
                             <textarea class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
                                     rows="2" 
-                                    placeholder="Enter complete address"></textarea>
+                                name="caddress"    placeholder="Enter complete address"></textarea>
                         </div>
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">City</label>
                             <input type="text" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter city">
+                                name="city"   placeholder="Enter city">
                         </div>
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">Stipend Amount</label>
                             <input type="number" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter amount">
+                                 name="stipendAmount"  placeholder="Enter amount">
                         </div>
                     </div>
                 </div>
@@ -74,19 +78,19 @@
                             <label class="text-gray-300 text-sm mb-2 block">Mentor Name</label>
                             <input type="text" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter mentor's name">
+                               name="mentorName"    placeholder="Enter mentor's name">
                         </div>
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">Contact Number</label>
                             <input type="tel" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter contact number">
+                               name="mentorContactNumber"    placeholder="Enter contact number">
                         </div>
                         <div class="form-group md:col-span-2">
                             <label class="text-gray-300 text-sm mb-2 block">Email Address</label>
                             <input type="email" 
                                    class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200"
-                                   placeholder="Enter email address">
+                                 name="mentorEmail"  placeholder="Enter email address">
                         </div>
                     </div>
                 </div>
@@ -101,19 +105,20 @@
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">Start Date</label>
                             <input type="date" 
-                                   class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200">
+                                  name="startDate" class="form-input w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-white focus:border-cyan-400 focus:outline-none transition-colors duration-200">
                         </div>
                         <div class="form-group">
                             <label class="text-gray-300 text-sm mb-2 block">Offer Letter</label>
                             <div class="relative">
                                 <input type="file" 
+                                       name="offerLetterFname"
                                        class="hidden" 
                                        id="offerLetter" 
                                        accept=".pdf,.doc,.docx">
                                 <label for="offerLetter" 
                                        class="flex items-center gap-2 cursor-pointer w-full bg-gray-900/50 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-400 hover:border-cyan-400 transition-colors duration-200">
                                     <i class="ri-upload-2-line"></i>
-                                    <span id="fileName">Choose file</span>
+                                    <span id="fileName" >Choose file</span>
                                 </label>
                             </div>
                         </div>
