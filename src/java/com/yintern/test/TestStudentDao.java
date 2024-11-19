@@ -6,7 +6,7 @@ import com.yintern.models.Student;
 public class TestStudentDao {
 
     public static void main(String[] args) {
-        // Create a new Student object and set the values
+       
         Student student = new Student();
         student.setSid(101);              
         student.setSname("Akash");     
