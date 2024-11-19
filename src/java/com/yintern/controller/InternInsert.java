@@ -18,7 +18,7 @@ public class InternInsert extends HttpServlet {
             throws ServletException, IOException {
         
         try {
-            // Fetch form data
+          
             int sid = Integer.parseInt(request.getParameter("id"));
             String cname = request.getParameter("cname");
             String cnumber = request.getParameter("cnumber");
@@ -31,10 +31,10 @@ public class InternInsert extends HttpServlet {
             Date startDate = Date.valueOf(request.getParameter("startDate"));
             String offerLetterFname = request.getParameter("offerLetterFname");
 
-            // Marks default to 0 (int data type)
+           
             int marks = 0;
 
-            // Create Intern object
+          
             Intern intern = new Intern();
             intern.setSid(sid);
             intern.setCname(cname);
@@ -49,11 +49,11 @@ public class InternInsert extends HttpServlet {
             intern.setOfferLetterFname(offerLetterFname);
             intern.setMarks(marks); // Default marks value set to 0
 
-            // Save data to the database using InternDao
+            
             InternDao internDao = new InternDao();
             boolean isInserted = internDao.insertIntern(intern);
 
-            // Redirect based on insertion success or failure
+            
             if (isInserted) {
                 response.getWriter().println("successfully insert");
                 
@@ -62,7 +62,7 @@ public class InternInsert extends HttpServlet {
                  response.getWriter().println("not inserted");
             }
         } catch (Exception e) {
-            // Handle any exceptions that occur during the processing
+           
             e.printStackTrace();
             response.sendRedirect("error.jsp");
         }
