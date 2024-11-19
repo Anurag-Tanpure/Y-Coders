@@ -1,68 +1,70 @@
 package com.yintern.controller;
 
+import com.yintern.dao.InternDao;
 import com.yintern.models.Intern;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Date;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/InternInsert")
 public class InternInsert extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Retrieve form data
-        String sid = request.getParameter("id"); // The sid will come from the session
-        String cname = request.getParameter("cname");
-        String cnumber = request.getParameter("cnumber");
-        String caddress = request.getParameter("caddress");
-        String city = request.getParameter("city");
-        double stipendAmount = Double.parseDouble(request.getParameter("stipendAmount"));
-        String mentorName = request.getParameter("mentorName");
-        String mentorContactNumber = request.getParameter("mentorContactNumber");
-        String mentorEmail = request.getParameter("mentorEmail");
-        String startDate = request.getParameter("startDate");
-        String offerLetterFname = request.getParameter("offerLetterFname");
+        try {
+            // Fetch form data
+            int sid = Integer.parseInt(request.getParameter("id"));
+            String cname = request.getParameter("cname");
+            String cnumber = request.getParameter("cnumber");
+            String caddress = request.getParameter("caddress");
+            String city = request.getParameter("city");
+            double stipendAmount = Double.parseDouble(request.getParameter("stipendAmount"));
+            String mentorName = request.getParameter("mentorName");
+            String mentorContactNumber = request.getParameter("mentorContactNumber");
+            String mentorEmail = request.getParameter("mentorEmail");
+            Date startDate = Date.valueOf(request.getParameter("startDate"));
+            String offerLetterFname = request.getParameter("offerLetterFname");
 
-        // You can print the values to verify the data is captured
-        System.out.println("Intern ID: " + sid);
-        System.out.println("Company Name: " + cname);
-        System.out.println("Company Number: " + cnumber);
-        System.out.println("Company Address: " + caddress);
-        System.out.println("City: " + city);
-        System.out.println("Stipend Amount: " + stipendAmount);
-        System.out.println("Mentor Name: " + mentorName);
-        System.out.println("Mentor Contact: " + mentorContactNumber);
-        System.out.println("Mentor Email: " + mentorEmail);
-        System.out.println("Start Date: " + startDate);
-        System.out.println("Offer Letter Filename: " + offerLetterFname);
-        
-        // You can create an Intern object to hold the data (optional)
-        Intern intern = new Intern();
-        intern.setSid(Integer.parseInt(sid));
-        intern.setCname(cname);
-        intern.setCnumber(cnumber);
-        intern.setCaddress(caddress);
-        intern.setCity(city);
-        intern.setStipendAmount(stipendAmount);
-        intern.setMentorName(mentorName);
-        intern.setMentorContactNumber(mentorContactNumber);
-        intern.setMentorEmail(mentorEmail);
-        intern.setStartDate(java.sql.Date.valueOf(startDate)); // Convert String to Date
-        intern.setOfferLetterFname(offerLetterFname);
+            // Marks default to 0 (int data type)
+            int marks = 0;
 
-        // At this point, you can insert the intern object into the database
-        // Example: DatabaseHelper.insertIntern(intern);
+            // Create Intern object
+            Intern intern = new Intern();
+            intern.setSid(sid);
+            intern.setCname(cname);
+            intern.setCnumber(cnumber);
+            intern.setCaddress(caddress);
+            intern.setCity(city);
+            intern.setStipendAmount(stipendAmount);
+            intern.setMentorName(mentorName);
+            intern.setMentorContactNumber(mentorContactNumber);
+            intern.setMentorEmail(mentorEmail);
+            intern.setStartDate(startDate.toString());
+            intern.setOfferLetterFname(offerLetterFname);
+            intern.setMarks(marks); // Default marks value set to 0
 
-        // Send a response back to the client (optional)
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>Internship Details Submitted Successfully</h1>");
-        out.println("<p>Intern details have been saved.</p>");
-        out.println("</body></html>");
+            // Save data to the database using InternDao
+            InternDao internDao = new InternDao();
+            boolean isInserted = internDao.insertIntern(intern);
+
+            // Redirect based on insertion success or failure
+            if (isInserted) {
+                response.getWriter().println("successfully insert");
+                
+            } else {
+                
+                 response.getWriter().println("not inserted");
+            }
+        } catch (Exception e) {
+            // Handle any exceptions that occur during the processing
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 }

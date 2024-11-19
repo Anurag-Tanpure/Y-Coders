@@ -1,40 +1,18 @@
 package com.yintern.models;
 
-import java.util.Date;
-
 public class Intern {
-
-    private int sid;                    // Student ID
-    private String cname;                // Company Name
-    private String cnumber;              // Company Contact Number
-    private String caddress;             // Company Address
-    private String city;                 // City
-    private double stipendAmount;       // Stipend Amount
-    private String mentorName;           // Mentor Name
-    private String mentorContactNumber; // Mentor Contact Number
-    private String mentorEmail;         // Mentor Email
-    private Date startDate;              // Start Date
-    private String offerLetterFname;    // Offer Letter Filename
-
-    // Constructor
-    public Intern() {
-    }
-
-    public Intern(int sid, String cname, String cnumber, String caddress, String city, 
-                  double stipendAmount, String mentorName, String mentorContactNumber, 
-                  String mentorEmail, Date startDate, String offerLetterFname) {
-        this.sid = sid;
-        this.cname = cname;
-        this.cnumber = cnumber;
-        this.caddress = caddress;
-        this.city = city;
-        this.stipendAmount = stipendAmount;
-        this.mentorName = mentorName;
-        this.mentorContactNumber = mentorContactNumber;
-        this.mentorEmail = mentorEmail;
-        this.startDate = startDate;
-        this.offerLetterFname = offerLetterFname;
-    }
+    private int sid;
+    private String cname;
+    private String cnumber;
+    private String caddress;
+    private String city;
+    private double stipendAmount;
+    private String mentorName;
+    private String mentorContactNumber;
+    private String mentorEmail;
+    private String startDate;
+    private String offerLetterFname;
+    private int marks; // Updated marks to int
 
     // Getters and Setters
     public int getSid() {
@@ -109,11 +87,11 @@ public class Intern {
         this.mentorEmail = mentorEmail;
     }
 
-    public Date getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
@@ -125,20 +103,11 @@ public class Intern {
         this.offerLetterFname = offerLetterFname;
     }
 
-    @Override
-    public String toString() {
-        return "Intern{" +
-                "sid=" + sid +
-                ", cname='" + cname + '\'' +
-                ", cnumber='" + cnumber + '\'' +
-                ", caddress='" + caddress + '\'' +
-                ", city='" + city + '\'' +
-                ", stipendAmount=" + stipendAmount +
-                ", mentorName='" + mentorName + '\'' +
-                ", mentorContactNumber='" + mentorContactNumber + '\'' +
-                ", mentorEmail='" + mentorEmail + '\'' +
-                ", startDate=" + startDate +
-                ", offerLetterFname='" + offerLetterFname + '\'' +
-                '}';
+    public int getMarks() { // Updated to return int
+        return marks;
+    }
+
+    public void setMarks(int marks) { // Updated to accept int
+        this.marks = marks;
     }
 }

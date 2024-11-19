@@ -1,4 +1,4 @@
-<%@page import="com.yintern.dao.StudentDao"%>
+    <%@page import="com.yintern.dao.StudentDao"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
