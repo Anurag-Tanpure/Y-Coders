@@ -6,6 +6,7 @@ import com.yintern.models.Student;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class StudentDao {
 
@@ -22,7 +23,7 @@ public class StudentDao {
             ps.setInt(1, sid);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return rs.getInt(1) > 0; // If count > 0, student ID exists
+                return rs.getInt(1) > 0;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -30,7 +31,7 @@ public class StudentDao {
         return false;
     }
 
-    // Insert student if the ID doesn't exist
+  
     public boolean insertStudent(Student student) {
         if (doesStudentExist(student.getSid())) {
             // If student ID exists, return false
@@ -62,7 +63,7 @@ public class StudentDao {
                         rs.getString("spass"),
                         rs.getString("sname"),
                         rs.getInt("internstatus"),
-                        rs.getInt("mentor_id") // Get mentorId
+                        rs.getInt("mentor_id") 
                 ));
             }
         } catch (SQLException e) {
@@ -82,7 +83,7 @@ public class StudentDao {
                         rs.getString("spass"),
                         rs.getString("sname"),
                         rs.getInt("internstatus"),
-                        rs.getInt("mentor_id") // Get mentorId
+                        rs.getInt("mentor_id") 
                 );
             }
         } catch (SQLException e) {
@@ -97,7 +98,7 @@ public class StudentDao {
             ps.setString(1, student.getSpass());
             ps.setString(2, student.getSname());
             ps.setInt(3, student.getInternstatus());
-            ps.setInt(4, student.getMentorId());  // Update mentorId
+            ps.setInt(4, student.getMentorId());  
             ps.setInt(5, student.getSid());
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {

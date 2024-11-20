@@ -1,4 +1,4 @@
-/* Form animations and effects */
+
 .form-input, .form-select {
     transition: all 0.3s ease;
 }
@@ -8,12 +8,12 @@
     box-shadow: 0 4px 20px rgba(34, 211, 238, 0.1);
 }
 
-/* Glassmorphism effects */
+
 .backdrop-blur-md {
     backdrop-filter: blur(12px);
 }
 
-/* Form group hover effects */
+
 .form-group {
     transition: all 0.3s ease;
 }
@@ -22,7 +22,7 @@
     color: #22d3ee;
 }
 
-/* Custom select styling */
+
 select {
     appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%239CA3AF'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
@@ -31,7 +31,7 @@ select {
     background-size: 1rem;
 }
 
-/* Floating animation for the logo */
+
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
@@ -41,7 +41,7 @@ select {
     animation: float 3s ease-in-out infinite;
 }
 
-/* Background gradient animation */
+
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -54,7 +54,7 @@ body {
     animation: gradientBG 15s ease infinite;
 }
 
-/* Input focus ring animation */
+
 @keyframes focusRing {
     0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }

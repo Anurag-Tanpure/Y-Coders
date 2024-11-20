@@ -16,14 +16,14 @@ public class StudentInsert extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        // Fetch the data from the form
+     
         String idStr = request.getParameter("id"); // Student ID (Scholar Number)
         String name = request.getParameter("name"); // Student Name
         String pass = request.getParameter("pass"); // Password
         String status = request.getParameter("status"); // Intern Status
         String mentorIdStr = request.getParameter("mentor_id"); // Mentor ID
 
-        // Parse the ID as an integer
+        
         int id = -1;
         try {
             id = Integer.parseInt(idStr);
@@ -34,7 +34,7 @@ public class StudentInsert extends HttpServlet {
             return;
         }
 
-        // Parse the mentorId
+       
         int mentorId = -1;
         try {
             mentorId = Integer.parseInt(mentorIdStr);
@@ -44,7 +44,7 @@ public class StudentInsert extends HttpServlet {
             return;
         }
 
-        // Map the intern status to the appropriate value
+       
         int internStatus = -1;
         if ("not_started".equals(status)) {
             internStatus = -1; // Pending
@@ -54,7 +54,7 @@ public class StudentInsert extends HttpServlet {
             internStatus = 1; // Success
         }
 
-        // Create a Student object and set the attributes
+     
         Student student = new Student();
         student.setSid(id);
         student.setSname(name);
@@ -62,7 +62,7 @@ public class StudentInsert extends HttpServlet {
         student.setInternstatus(internStatus);
         student.setMentorId(mentorId);
 
-        // Use StudentDao to check if the student ID already exists
+       
         StudentDao studentDao = new StudentDao();
         if (studentDao.doesStudentExist(id)) {
             // If the ID exists, display an error message to the user
@@ -72,10 +72,10 @@ public class StudentInsert extends HttpServlet {
             return;
         }
 
-        // Use StudentDao to insert the student into the database
+       
         boolean success = studentDao.insertStudent(student);
 
-        // Set response based on insertion success
+       
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 

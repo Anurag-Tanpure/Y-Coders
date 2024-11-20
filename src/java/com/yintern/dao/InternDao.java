@@ -10,7 +10,7 @@ import java.util.List;
 public class InternDao {
     private Connection con = MyConnection.getConnection();
 
-    // INSERT operation
+   
     public boolean insertIntern(Intern intern) {
         String query = "INSERT INTO intern (sid, cname, cnumber, caddress, city, stipend_amount, mentor_name, mentor_contact_number, mentor_email, start_date, offer_letter_fname, marks) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = con.prepareStatement(query)) {
@@ -33,7 +33,7 @@ public class InternDao {
         }
     }
 
-    // DELETE operation
+   
     public boolean deleteIntern(int sid) {
         String query = "DELETE FROM intern WHERE sid = ?";
         try (PreparedStatement ps = con.prepareStatement(query)) {
@@ -45,7 +45,7 @@ public class InternDao {
         }
     }
 
-    // UPDATE operation
+  
     public boolean updateIntern(Intern intern) {
         String query = "UPDATE intern SET cname = ?, cnumber = ?, caddress = ?, city = ?, stipend_amount = ?, mentor_name = ?, mentor_contact_number = ?, mentor_email = ?, start_date = ?, offer_letter_fname = ?, marks = ? WHERE sid = ?";
         try (PreparedStatement ps = con.prepareStatement(query)) {
@@ -68,7 +68,7 @@ public class InternDao {
         }
     }
 
-    // DISPLAY operation
+
     public List<Intern> getAllInterns() {
         List<Intern> internList = new ArrayList<>();
         String query = "SELECT * FROM intern";
@@ -95,7 +95,7 @@ public class InternDao {
         return internList;
     }
 
-    // CHECK operation
+   
     public boolean checkInternExists(int sid) {
         String query = "SELECT * FROM intern WHERE sid = ?";
         try (PreparedStatement ps = con.prepareStatement(query)) {

@@ -1,32 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.yintern.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- *
- * @author Lenovo
- */
+
 public class MyConnection {
     static Connection con = null;
 
     static {
         try {
+<<<<<<< HEAD
             // Load MySQL JDBC Driver
             Class.forName("com.mysql.jdbc.Driver");
 
             // Database URL, Username, and Password
             String url = "jdbc:mysql://localhost:3306/y_intern";
+=======
+         
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            
+            String url = "jdbc:mysql://localhost:3307/y_intern";
+>>>>>>> f902f5460aae893c29b8333eefb521339f5d7224
             String username = "root";
             String password = "anurag";
 
-            // Establish Connection
             con = DriverManager.getConnection(url, username, password);
             System.out.println("Connection to y_intern database established successfully!");
 
@@ -37,7 +37,7 @@ public class MyConnection {
         }
     }
 
-    // Method to retrieve the connection object
+
     public static Connection getConnection() {
         return con;
     }

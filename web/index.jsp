@@ -19,11 +19,12 @@
         String status = request.getParameter("status");
         String errorMsg = null; // To hold error message
 
-        // Log parameters for debugging (only for development, not for production)
+    
         System.out.println("Status: " + status);
         System.out.println("ID: " + id);
         System.out.println("Password: " + pass);
 
+<<<<<<< HEAD
         // Handle different user statuses using if-else
         if (status != null && id != null && pass != null) {
             if (status.equals("student")) {
@@ -57,6 +58,42 @@
                 }
             } else {
                 out.println("<script>alert('Invalid status selected! Please try again.');</script>");
+=======
+       
+        if (status != null && id != null && pass != null) {
+            switch (status) {
+                case "student":
+                    
+                 
+                {
+                    session.setAttribute("sid",id);
+                    StudentDao sd =new StudentDao();
+                    if(sd.checkLogin(Integer.parseInt(id), pass))
+                    {
+                        response.sendRedirect("student.jsp");
+                    }
+                    else
+                    {
+                         errorMsg = "Invalid Student ID or Password!"; 
+                    }
+                }
+                   
+                    break;
+                case "mentor":
+                  
+                    response.sendRedirect("mentorDashboard.jsp");
+                    break;
+                case "admin":
+                  
+                    if (id.equals("1212") && pass.equals("59#test")) {
+                        response.sendRedirect("admin.html");
+                    } else {
+                        errorMsg = "Invalid Admin ID or Password!"; 
+                    }
+                    break;
+                default:
+                    out.println("<script>alert('Invalid status selected! Please try again.');</script>");
+>>>>>>> f902f5460aae893c29b8333eefb521339f5d7224
             }
         }
     %>
