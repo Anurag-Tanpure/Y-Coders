@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MentorDao {
 
-    // Create Mentor
+   
     public boolean addMentor(Mentor mentor) {
         String sql = "INSERT INTO mentors (mentor_name, mentor_email, mentor_password) VALUES (?, ?, ?)";
         try (Connection con = MyConnection.getConnection();
@@ -25,7 +25,7 @@ public class MentorDao {
         return false;
     }
 
-    // Read Mentor by ID
+   
     public Mentor getMentorById(int mentorId) {
         String sql = "SELECT * FROM mentors WHERE mentor_id = ?";
         try (Connection con = MyConnection.getConnection();
@@ -47,7 +47,7 @@ public class MentorDao {
         return null;
     }
 
-    // Read All Mentors
+    
     public List<Mentor> getAllMentors() {
         List<Mentor> mentors = new ArrayList<>();
         String sql = "SELECT * FROM mentors";
@@ -68,7 +68,7 @@ public class MentorDao {
         return mentors;
     }
 
-    // Update Mentor
+    
     public boolean updateMentor(Mentor mentor) {
         String sql = "UPDATE mentors SET mentor_name = ?, mentor_email = ?, mentor_password = ? WHERE mentor_id = ?";
         try (Connection con = MyConnection.getConnection();
