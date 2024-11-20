@@ -1,0 +1,114 @@
+/* Base Styles */
+body {
+    background: linear-gradient(45deg, #111827, #1f2937, #111827);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Navigation Styles */
+.nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 text-gray-400 rounded-lg transition-all duration-200 hover:bg-gray-700/50 hover:text-cyan-400;
+}
+
+.nav-link.active {
+    @apply bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-400;
+}
+
+.nav-link i {
+    @apply text-xl;
+}
+
+/* Card Styles */
+.dashboard-card {
+    @apply bg-gray-800/50 backdrop-blur-xl rounded-xl p-6 border border-gray-700/50;
+}
+
+.card-header {
+    @apply flex items-center justify-between mb-6;
+}
+
+.card-header h2 {
+    @apply text-lg font-semibold text-white;
+}
+
+/* Stat Cards */
+.stat-card {
+    @apply bg-gray-800/50 backdrop-blur-xl rounded-xl p-6 border border-gray-700/50 flex items-center gap-4;
+}
+
+.stat-icon {
+    @apply w-12 h-12 rounded-lg flex items-center justify-center;
+}
+
+.stat-icon i {
+    @apply text-2xl;
+}
+
+.stat-info h3 {
+    @apply text-gray-400 text-sm mb-1;
+}
+
+/* Student Items */
+.student-item {
+    @apply flex items-center gap-4 p-3 rounded-lg bg-gray-900/50 hover:bg-gray-700/50 transition-all duration-200;
+}
+
+.student-item h4 {
+    @apply text-white font-medium;
+}
+
+.student-item p {
+    @apply text-gray-400 text-sm;
+}
+
+/* Status Badges */
+.status-badge {
+    @apply px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-badge.in-progress {
+    @apply bg-cyan-500/20 text-cyan-400;
+}
+
+.status-badge.completed {
+    @apply bg-green-500/20 text-green-400;
+}
+
+/* Progress Bars */
+.progress-bar {
+    @apply h-2 bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+    @apply h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full;
+    transition: width 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Hover Effects */
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.notification-btn, .settings-btn {
+    @apply w-10 h-10 rounded-lg flex items-center justify-center bg-gray-800/50 hover:bg-gray-700/50 transition-all duration-200;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    aside {
+        transform: translateX(-100%);
+    }
+    
+    main {
+        margin-left: 0;
+    }
+}

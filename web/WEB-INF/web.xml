@@ -5,16 +5,24 @@
         <servlet-class>com.yintern.controller.StudentInsert</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>InternInsert</servlet-name>
-        <servlet-class>com.yintern.controller.InternInsert</servlet-class>
+        <servlet-name>InsertIntern</servlet-name>
+        <servlet-class>com.yintern.controller.InsertIntern</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>mentorInsert</servlet-name>
+        <servlet-class>com.yintern.controller.mentorInsert</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StudentInsert</servlet-name>
         <url-pattern>/StudentInsert</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>InternInsert</servlet-name>
-        <url-pattern>/InternInsert</url-pattern>
+        <servlet-name>InsertIntern</servlet-name>
+        <url-pattern>/InsertIntern</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>mentorInsert</servlet-name>
+        <url-pattern>/mentorInsert</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -19,12 +19,12 @@ public class MyConnection {
     static {
         try {
             // Load MySQL JDBC Driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
 
             // Database URL, Username, and Password
-            String url = "jdbc:mysql://localhost:3307/y_intern";
+            String url = "jdbc:mysql://localhost:3306/y_intern";
             String username = "root";
-            String password = "root";
+            String password = "anurag";
 
             // Establish Connection
             con = DriverManager.getConnection(url, username, password);

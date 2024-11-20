@@ -1,4 +1,5 @@
-    <%@page import="com.yintern.dao.StudentDao"%>
+<%@page import="com.yintern.dao.MentorDao"%>
+<%@page import="com.yintern.dao.StudentDao"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,6 @@
 </head>
 <body class="bg-black">
     <% 
-        
         String id = request.getParameter("id");
         String pass = request.getParameter("pass");
         String status = request.getParameter("status");
@@ -24,40 +24,39 @@
         System.out.println("ID: " + id);
         System.out.println("Password: " + pass);
 
-        // Handle different user statuses
+        // Handle different user statuses using if-else
         if (status != null && id != null && pass != null) {
-            switch (status) {
-                case "student":
-                    
-                    // Redirect or handle student logic
-                {
-                    session.setAttribute("sid",id);
-                    StudentDao sd =new StudentDao();
-                    if(sd.checkLogin(Integer.parseInt(id), pass))
-                    {
-                        response.sendRedirect("student.jsp");
-                    }
-                    else
-                    {
-                         errorMsg = "Invalid Student ID or Password!"; 
-                    }
+            if (status.equals("student")) {
+                session.setAttribute("sid", id);
+                StudentDao sd = new StudentDao();
+                if (sd.checkLogin(Integer.parseInt(id), pass)) {
+                    response.sendRedirect("student.jsp");
+                } else {
+                    errorMsg = "Invalid Student ID or Password!";
                 }
-                   
-                    break;
-                case "mentor":
-                    // Redirect or handle mentor logic
-                    response.sendRedirect("mentorDashboard.jsp");
-                    break;
-                case "admin":
-                    // Validate admin credentials
-                    if (id.equals("1212") && pass.equals("59#test")) {
-                        response.sendRedirect("admin.html");
-                    } else {
-                        errorMsg = "Invalid Admin ID or Password!"; // Set error message
-                    }
-                    break;
-                default:
-                    out.println("<script>alert('Invalid status selected! Please try again.');</script>");
+            } else if (status.equals("mentor")) {
+                // Redirect or handle mentor logic
+                
+                session.setAttribute("mid", id);
+                MentorDao md= new MentorDao();
+                 if(md.checkLogin(Integer.parseInt(id), pass))
+                 {
+                     response.sendRedirect("mentor_db.jsp");
+                
+                 }else
+                {
+                  errorMsg = "Invalid Mentor ID or Password!";
+                }
+            } else if (status.equals("admin")) {
+                
+                // Validate admin credentials
+                if (id.equals("1212") && pass.equals("59#test")) {
+                    response.sendRedirect("admin.html");
+                } else {
+                    errorMsg = "Invalid Admin ID or Password!";
+                }
+            } else {
+                out.println("<script>alert('Invalid status selected! Please try again.');</script>");
             }
         }
     %>
@@ -71,10 +70,10 @@
                     <form class="space-y-6" action="index.jsp" method="get">
                         <div class="form-group">
                             <select class="form-control glass-effect" id="status" name="status" required>
-                                <option value="" disabled selected>Select Status</option>
-                                <option value="student">Student</option>
-                                <option value="mentor">Mentor</option>
-                                <option value="admin">Admin</option>
+                                <option value="" disabled selected style="color:black">Select Status</option>
+                                <option value="student" style="color:black">Student</option>
+                                <option value="mentor" style="color:black">Mentor</option>
+                                <option value="admin" style="color:black">Admin</option>
                             </select>
                         </div>
 

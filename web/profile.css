@@ -1,0 +1,72 @@
+/* Profile animations and effects */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    background: linear-gradient(45deg, #111827, #1f2937, #111827);
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Card hover effects */
+.bg-gray-800\/50 {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bg-gray-800\/50:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress bar animation */
+@keyframes fillProgress {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.bg-gradient-to-r {
+    animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Profile image hover effect */
+.rounded-full {
+    transition: transform 0.3s ease;
+}
+
+.rounded-full:hover {
+    transform: scale(1.05);
+}
+
+/* Document link hover effect */
+.hover\:bg-gray-700\/50:hover {
+    transform: translateX(4px);
+    transition: transform 0.2s ease;
+}
+
+/* Icon animations */
+.text-cyan-400 {
+    transition: transform 0.2s ease;
+}
+
+.bg-gray-800\/50:hover .text-cyan-400 {
+    transform: scale(1.1);
+}
+
+/* Glassmorphism effects */
+.backdrop-blur-md {
+    backdrop-filter: blur(12px);
+}
+
+/* Status indicator pulse */
+@keyframes statusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(34, 211, 238, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+}
+
+.bg-cyan-500\/20 {
+    animation: statusPulse 2s infinite;
+}
